@@ -13,11 +13,11 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'PULSA — Personal Finance Tracker',
+      title: 'Rinciin — Personal Finance Tracker',
       htmlAttrs: { lang: 'id' },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-        { name: 'description', content: 'PULSA — pencatatan keuangan pribadi yang rapi dan cepat.' }
+        { name: 'description', content: 'Rinciin — pencatatan keuangan pribadi yang rapi dan cepat.' }
       ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
       script: [

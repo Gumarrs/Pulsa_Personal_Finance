@@ -1,4 +1,4 @@
-# PULSA — Personal Finance Tracker (MVP)
+# Rinciin — Personal Finance Tracker (MVP)
 
 Aplikasi pencatatan keuangan pribadi berbasis **Nuxt 3 + Vue 3 + TypeScript + Tailwind CSS + Supabase**.
 

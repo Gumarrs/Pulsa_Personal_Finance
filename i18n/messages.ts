@@ -38,7 +38,7 @@ const rows: Row[] = [
   ['config.text', 'Salin .env.example menjadi .env.local, isi dua variabel berikut, lalu restart server.', 'Copy .env.example to .env.local, fill in the two variables below, then restart the dev server.'],
   ['banner.balanceView', 'View wallet_balances tidak tersedia atau kolomnya tidak dikenali (dibutuhkan wallet_id dan balance). Saldo dihitung sementara di aplikasi; buat view tersebut agar saldo konsisten.', 'The wallet_balances view is missing or its columns are not recognised (wallet_id and balance are required). Balances are temporarily computed in the app; create the view for consistent balances.'],
 
-  ['auth.loginTitle', 'Masuk ke PULSA', 'Sign in to PULSA'],
+  ['auth.loginTitle', 'Masuk ke Rinciin', 'Sign in to Rinciin'],
   ['auth.loginSub', 'Pelacak Keuangan Pribadi.', 'Personal Finance Tracker.'],
   ['auth.registerTitle', 'Buat akun', 'Create your account'],
   ['auth.registerSub', 'Mulai catat pemasukan dan pengeluaranmu.', 'Start tracking your income and spending.'],
