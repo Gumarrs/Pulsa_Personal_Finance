@@ -10,8 +10,6 @@ const { lang, setLang } = usePrefs()
     </button>
     <div class="w-full max-w-sm">
       <div class="mb-8 flex items-center justify-center gap-2.5">
-        <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent text-accent-fg"><Activity class="h-5 w-5" /></span>
-        <span class="text-xl font-semibold tracking-tight">Rinciin</span>
       </div>
       <slot />
     </div>
