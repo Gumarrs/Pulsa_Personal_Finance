@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: false },
   modules: ['@nuxtjs/tailwindcss'],
-  css: ['@fontsource-variable/inter', '~/assets/css/main.css'],
+  css: ['@fontsource-variable/inter', '~/assets/css/main.css', '~/assets/css/theme.css'],
   // Diisi dari NUXT_PUBLIC_SUPABASE_URL dan NUXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
   runtimeConfig: {
     public: {

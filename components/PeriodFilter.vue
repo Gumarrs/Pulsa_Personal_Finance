@@ -13,12 +13,14 @@ function onDate(key: 'from' | 'to', e: Event) {
 
 <template>
   <div class="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center">
-    <div class="no-scrollbar flex max-w-full gap-1 overflow-x-auto rounded-xl border border-line bg-surface p-1">
+    <div class="no-scrollbar flex max-w-full gap-1 overflow-x-auto rounded-2xl border border-line bg-surface p-1 shadow-sm" role="tablist">
       <button
         v-for="p in presets"
         :key="p"
-        class="shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition"
-        :class="preset === p ? 'bg-fg text-bg' : 'text-muted hover:text-fg'"
+        role="tab"
+        :aria-selected="preset === p"
+        class="shrink-0 rounded-xl px-3.5 py-2 text-xs font-semibold transition"
+        :class="preset === p ? 'bg-brand shadow-sm' : 'text-muted hover:bg-soft hover:text-fg'"
         @click="preset = p"
       >
         {{ t('period.' + p) }}

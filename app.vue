@@ -4,7 +4,7 @@ const { configured } = useSupabase()
 
 <template>
   <div>
-    <NuxtLoadingIndicator color="#10b981" :height="2" />
+    <NuxtLoadingIndicator color="#159b60" :height="2" />
     <ConfigError v-if="!configured" />
     <NuxtLayout v-else>
       <NuxtPage />

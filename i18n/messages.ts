@@ -166,7 +166,11 @@ const rows: Row[] = [
   ['settings.language', 'Bahasa', 'Language'],
   ['settings.currency', 'Mata uang', 'Currency'],
   ['settings.currencyNote', 'Mengubah mata uang hanya mengubah format tampilan, bukan nilai transaksi.', 'Changing currency only changes how amounts are displayed, not their values.'],
-  ['settings.logout', 'Keluar', 'Log out']
+  ['settings.logout', 'Keluar', 'Log out'],
+  ['logout.title', 'Keluar dari akun?', 'Log out of your account?'],
+  ['logout.text', 'Kamu perlu masuk lagi untuk mengakses data keuanganmu. Data yang sudah dicatat tetap aman.', 'You will need to log in again to access your financial data. Your records stay safe.'],
+  ['logout.confirm', 'Ya, keluar', 'Yes, log out'],
+  ['logout.stay', 'Tetap di sini', 'Stay logged in']
 ]
 
 export const messages: Record<'id' | 'en', Record<string, string>> = {

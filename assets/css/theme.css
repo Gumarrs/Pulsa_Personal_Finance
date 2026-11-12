@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Rinciin — shared theme layer
+   Dimuat SETELAH main.css (lihat nuxt.config.ts). main.css tidak diubah.
+   Menyelaraskan seluruh halaman dengan gaya login/register:
+   hijau emerald, gradien lembut, kartu membulat, ambient glow, dark mode.
+   ========================================================================== */
+
+:root {
+  /* Token warna (kanal RGB, dipakai oleh tailwind.config.ts) */
+  --c-bg: 245 248 245;
+  --c-surface: 255 255 255;
+  --c-soft: 237 244 239;
+  --c-fg: 24 60 43;
+  --c-muted: 98 117 105;
+  --c-line: 227 235 229;
+  --c-accent: 22 134 83;
+  --c-accent-fg: 255 255 255;
+  --c-income: 22 163 106;
+  --c-expense: 224 86 86;
+  --c-transfer: 59 130 246;
+
+  /* Token tambahan */
+  --g-brand: linear-gradient(115deg, #176a43, #159b60);
+  --g-brand-hover: linear-gradient(115deg, #125b38, #0d8752);
+  --g-tile: linear-gradient(135deg, #176b45, #0e9b60);
+  --shadow-brand: 0 7px 18px #16855230;
+  --shadow-card: 0 1px 2px rgb(31 75 49 / 0.04), 0 14px 44px rgb(31 75 49 / 0.07);
+  --amb-1: #c6eed8;
+  --amb-2: #d5eee0;
+  --amb-3: #e2f3df;
+}
+
+.dark {
+  --c-bg: 14 20 17;
+  --c-surface: 22 30 26;
+  --c-soft: 30 40 34;
+  --c-fg: 232 244 237;
+  --c-muted: 150 169 157;
+  --c-line: 38 51 43;
+  --c-accent: 79 217 155;
+  --c-accent-fg: 6 40 28;
+  --c-income: 74 222 128;
+  --c-expense: 248 130 120;
+  --c-transfer: 122 162 247;
+
+  --shadow-brand: 0 7px 18px rgb(22 134 83 / 0.28);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 14px 44px rgb(0 0 0 / 0.35);
+  --amb-1: rgb(32 165 104 / 0.22);
+  --amb-2: rgb(23 130 84 / 0.18);
+  --amb-3: rgb(52 211 153 / 0.1);
+}
+
+/* ---------- Komponen dasar (menimpa main.css) ---------- */
+
+.card {
+  border-radius: 20px;
+  border-color: rgb(var(--c-line));
+  background-color: rgb(var(--c-surface) / 0.92);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background-image: var(--g-brand);
+  color: #fff;
+  box-shadow: var(--shadow-brand);
+  font-weight: 600;
+}
+.btn-primary:hover:not(:disabled) {
+  opacity: 1;
+  background-image: var(--g-brand-hover);
+  transform: translateY(-1px);
+}
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.btn-secondary {
+  border-color: rgb(var(--c-line));
+  background-color: rgb(var(--c-surface));
+}
+.btn-secondary:hover {
+  border-color: rgb(var(--c-accent) / 0.4);
+  background-color: rgb(var(--c-soft));
+}
+
+.btn-ghost:hover {
+  color: rgb(var(--c-accent));
+}
+
+.input {
+  border-color: rgb(var(--c-line));
+  background-color: rgb(var(--c-bg) / 0.6);
+}
+.input:focus {
+  border-color: rgb(var(--c-accent));
+  background-color: rgb(var(--c-surface));
+  box-shadow: 0 0 0 4px rgb(var(--c-accent) / 0.12);
+}
+
+.label {
+  font-weight: 600;
+  color: rgb(var(--c-fg) / 0.75);
+}
+
+/* Modal / bottom sheet */
+.modal-panel {
+  border-radius: 24px 24px 0 0;
+  border-color: rgb(var(--c-line));
+  background-color: rgb(var(--c-surface));
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.25);
+}
+@media (min-width: 640px) {
+  .modal-panel {
+    border-radius: 24px;
+  }
+}
+
+/* ---------- Utilitas tema (nama baru, tidak bentrok dengan main.css) ---------- */
+
+.bg-brand {
+  background-image: var(--g-brand);
+  color: #fff;
+}
+.bg-brand-tile {
+  background-image: var(--g-tile);
+  color: #fff;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgb(var(--c-accent));
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(var(--c-accent));
+  box-shadow: 0 0 0 4px rgb(var(--c-accent) / 0.14);
+}
+
+/* Ikon kecil di kepala panel */
+.panel-icon {
+  display: grid;
+  height: 32px;
+  width: 32px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 10px;
+}
+
+/* Efek kilau pojok kartu (seperti card-glow pada halaman login) */
+.glow-corner {
+  position: relative;
+  overflow: hidden;
+}
+.glow-corner::before {
+  content: '';
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(var(--c-accent) / 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+/* ---------- Latar ambient ---------- */
+
+.app-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.app-ambient > span {
+  position: absolute;
+  border-radius: 50%;
+  animation: ambient-float 12s ease-in-out infinite;
+}
+.app-ambient > span:nth-child(1) {
+  width: 440px;
+  height: 440px;
+  top: -190px;
+  right: -100px;
+  background: radial-gradient(circle, var(--amb-1), transparent 70%);
+}
+.app-ambient > span:nth-child(2) {
+  width: 500px;
+  height: 500px;
+  bottom: -250px;
+  left: -180px;
+  background: radial-gradient(circle, var(--amb-2), transparent 70%);
+  animation-delay: -4s;
+}
+.app-ambient > span:nth-child(3) {
+  width: 250px;
+  height: 250px;
+  top: 45%;
+  left: 40%;
+  background: radial-gradient(circle, var(--amb-3), transparent 70%);
+  animation-delay: -7s;
+}
+
+@keyframes ambient-float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15px, -20px);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-ambient > span,
+  .rise-in {
+    animation: none;
+  }
+}

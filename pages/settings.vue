@@ -4,7 +4,8 @@ import type { Lang, Theme } from '~/composables/usePrefs'
 
 const { t } = useT()
 const { client } = useSupabase()
-const { user, signOut } = useAuth()
+const { user } = useAuth()
+const { ask: askLogout } = useLogoutConfirm()
 const { profile } = useData()
 const { lang, theme, currency, setLang, setTheme, setCurrency } = usePrefs()
 const toast = useToast()
@@ -99,6 +100,6 @@ async function onCurrency(e: Event) {
       </div>
     </section>
 
-    <button class="btn-secondary w-full text-expense" @click="signOut()"><LogOut class="h-4 w-4" />{{ t('settings.logout') }}</button>
+    <button class="btn-secondary w-full text-expense" @click="askLogout()"><LogOut class="h-4 w-4" />{{ t('settings.logout') }}</button>
   </div>
 </template>
